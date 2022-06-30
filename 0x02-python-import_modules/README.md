@@ -7,5 +7,5 @@
 4-hidden_discovery.py - a program that prints all the names defined by the compiled module hidden_4.pyc (please download it locally).<br>
 5-variable_load.py - a program that imports the variable a from the file variable_load_5.py and prints its value.<br>
 <h2>Advanced Task</h2>
-
+100-my_calculator.py - a program that imports all functions from the file calculator_1.py and handles basic operations.<br>
 </p>
