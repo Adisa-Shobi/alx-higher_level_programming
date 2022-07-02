@@ -28,7 +28,11 @@ int is_palindrome(listint_t **head)
 	for (k = 0; k <= n; k++)
 	{
 		if (entries[k] != entries[(len - 1) - k])
+		{
+			free(entries);
 			return (0);
+		}
 	}
+	free(entries);
 	return (1);
 }
