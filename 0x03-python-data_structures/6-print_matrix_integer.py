@@ -7,6 +7,6 @@ def print_matrix_integer(matrix=[[]]):
         length = len(item)
         for j in range(length):
             if j == length - 1:
-                print("{num}".format(num=item[j]))
+                print("{num:d}".format(num=item[j]))
             else:
-                print("{num}".format(num=item[j]), end=" ")
+                print("{num:d}".format(num=item[j]), end=" ")
