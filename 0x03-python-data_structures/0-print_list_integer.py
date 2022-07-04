@@ -2,4 +2,4 @@
 
 def print_list_integer(my_list=[]):
     for i in range(len(my_list)):
-        print("{num:d}".format(num=my_list[i]))
+        print("{num}".format(num=my_list[i]))
