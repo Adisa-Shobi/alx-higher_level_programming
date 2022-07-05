@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
  *is_palindrome - Checks if a singly linked list is a palindrome
@@ -19,19 +20,23 @@ int is_palindrome(listint_t **head)
 	n = len / 2;
 	entries = malloc(sizeof(*entries) * (n + 1));
 	ptr_2 = *head;
-	while (i < n && ptr_2)
+	while (ptr_2)
 	{
-		entries[i] = ptr_2->n;
-		ptr_2 = ptr_2->next;
+		if (i < n)
+		{
+			entries[i] = ptr_2->n;
+		}
+		if (len % 2 != 0 && i == n)
+		{
+			ptr_2 = ptr_2->next;
+			i++;
+		}
+		if (i >= n)
+		{
+			if (entries[(len - 1) - i] != ptr_2->n)
+				return (0);
+		}
 		i++;
-	}
-	if (len % 2 != 0)
-		ptr_2 = ptr_2->next;
-	while (ptr_2 && i >= 0)
-	{
-		i--;
-		if (entries[i] != ptr_2->n)
-			return (0);
 		ptr_2 = ptr_2->next;
 	}
 	free(entries);
