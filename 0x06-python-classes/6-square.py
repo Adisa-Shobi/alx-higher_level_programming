@@ -5,13 +5,14 @@
 class Square:
     '''Square represents an instance of a square shape'''
 
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         '''Initializes a new square object
 
            Args:
                 size (int): The size of the square.
         '''
         self.size = size
+        self.position = position
 
     def area(self):
         '''
@@ -40,11 +41,40 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = value
 
+    @property
+    def position(self):
+        '''
+           Retrieves the current position of square instance.
+
+           Returns:
+               The value of position.
+        '''
+        return self.__position
+
+    @position.setter
+    def position(self, value):
+        '''
+           Sets the value for position and performs type chacks
+
+           Args:
+             value (tuple): The position of the square
+        '''
+        if (
+                isinstance(value, tuple)
+                and len(value) == 2
+                and all([lambda i: isinstance(i, int)
+                         and i >= 0 for i in value])
+        ):
+            self.__position = value
+        else:
+            raise TypeError("position must be a tuple of 2 positive integers")
+
     def my_print(self):
         '''
            Prints graphic representaion of square instance
         '''
+        print("\n" * self.position[1], end="")
         for i in range(self.size):
-            print("#" * self.size)
+            print(" " * self.position[0] + "#" * self.size)
         if self.size == 0:
             print("")
