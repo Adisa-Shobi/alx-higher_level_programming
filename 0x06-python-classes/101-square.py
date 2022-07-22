@@ -22,7 +22,7 @@ class Square:
            Prints graphic representaion of square instance
         '''
         if self.size == 0:
-            return "\n"
+            return ("")
 
         res = "\n" * self.position[1]
         for i in range(self.size):
