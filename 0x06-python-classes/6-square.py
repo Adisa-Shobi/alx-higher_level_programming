@@ -62,8 +62,8 @@ class Square:
         if (
                 isinstance(value, tuple)
                 and len(value) == 2
-                and all([lambda i: isinstance(i, int)
-                         and i >= 0 for i in value])
+                and all(map(lambda i: (isinstance(i, int)
+                                       and i >= 0), value))
         ):
             self.__position = value
         else:
