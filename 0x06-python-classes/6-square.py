@@ -73,8 +73,10 @@ class Square:
         '''
            Prints graphic representaion of square instance
         '''
+        if self.size == 0:
+            print("")
+            return
+
         print("\n" * self.position[1], end="")
         for i in range(self.size):
             print(" " * self.position[0] + "#" * self.size)
-        if self.size == 0:
-            print("")
