@@ -53,7 +53,27 @@ Test Case: ``Size`` as a float and less than 0
 Test Case: ``Size`` as 0
 -------------------------
 
+::
 	>>> print_square(0)
 
+::
+
+Test Case: ``Size`` as 0
+-------------------------
+
+::
+        >>> print_square(-3.2)
+	Traceback (most recent call last):
+        TypeError: size must be an integer
+
+::
+
+Test Case: ``Size`` as 0
+-------------------------
+
+::
+        >>> print_square()
+        Traceback (most recent call last):
+        TypeError: print_square() missing 1 required positional argument: 'size'
 
 ::
