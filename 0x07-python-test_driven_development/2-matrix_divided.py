@@ -19,10 +19,13 @@ def matrix_divided(matrix, div):
     if not (isinstance(matrix, list)
             and all(map(lambda x: isinstance(x, list), matrix))
             and all(map(lambda x: all(map(
-                lambda y: isinstance(y, (int, float)), x)), matrix))):
+                lambda y: isinstance(y, (int, float)), x)), matrix))
+            and matrix != []
+            and all(map(lambda x: len(x) != 0, matrix))):
         raise TypeError("matrix must be a matrix"
                         " (list of lists) of integers/floats")
-    if not (all(map(lambda x: len(matrix[0]) == len(x), matrix))):
+    if not (all(map(lambda x: (len(matrix[0]) == len(x)),
+                    matrix))):
         raise TypeError("Each row of the matrix must have the same size")
     if not (isinstance(div, (int, float))):
         raise TypeError("div must be a number")
