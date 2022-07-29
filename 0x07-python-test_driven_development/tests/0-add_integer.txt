@@ -34,6 +34,10 @@ Test Case: Float and Float
 	7
 
 ::
+        >>> add_integer(-3.1, -4.2)
+        -7
+
+::
 
 Test Case: One integer input
 ----------------------------
@@ -61,6 +65,26 @@ Test Case: Argument ``b`` as a string
 	>>> add_integer(6, "test")
 	Traceback (most recent call last):
 	TypeError: b must be an integer
+
+::
+        >>> add_integer("hello", "test")
+        Traceback (most recent call last):
+        TypeError: a must be an integer
+
+::
+
+Test Case: Arguments as NaN
+-------------------------------------
+
+::
+        >>> add_integer(-6, float('nan'))
+	Traceback (most recent call last):
+	ValueError: cannot convert float NaN to integer
+
+::
+        >>> add_integer(float('nan'), 3)
+        Traceback (most recent call last):
+        ValueError: cannot convert float NaN to integer
 
 ::
 
