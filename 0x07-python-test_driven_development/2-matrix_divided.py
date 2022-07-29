@@ -4,6 +4,7 @@ Defines a function matrix_divided that divides
  all elements of a matrix by a number
 '''
 
+
 def matrix_divided(matrix, div):
     '''
     Divides all elements of matrix by div
@@ -17,10 +18,10 @@ def matrix_divided(matrix, div):
     '''
     if not (isinstance(matrix, list)
             and all(map(lambda x: isinstance(x, list), matrix))
-            and all(map(lambda x: all(map(lambda y: isinstance(y , (int, float)), x)),
-                        matrix))
-    ):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+            and all(map(lambda x: all(map(
+                lambda y: isinstance(y, (int, float)), x)), matrix))):
+        raise TypeError("matrix must be a matrix"
+                        " (list of lists) of integers/floats")
     if not (all(map(lambda x: len(matrix[0]) == len(x), matrix))):
         raise TypeError("Each row of the matrix must have the same size")
     if not (isinstance(div, (int, float))):

@@ -58,3 +58,30 @@ Test Case: Matrix with invalid types
 	TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 ::
+
+Test Case: Matrix with invalid div
+-----------------------------------
+
+::
+	>>> matrix = [
+	... [5, 4.0, 3.2],
+	... [ 5, 3.2, 4.0]
+	... ]
+	>>> matrix_divided(matrix, "hi")
+	Traceback (most recent call last):
+	TypeError: div must be a number
+
+::
+
+Test Case: Matrix with floats
+-----------------------------------
+
+::
+        >>> matrix = [
+        ... [5, 4.0, 3.2],
+        ... [ 5, 3.2, 4.0]
+        ... ]
+        >>> matrix_divided(matrix, 3)
+	[[1.67, 1.33, 1.07], [1.67, 1.07, 1.33]]
+
+::
