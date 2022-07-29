@@ -20,6 +20,11 @@ class TestMaxInteger(unittest.TestCase):
         '''
         self.assertAlmostEqual(max_integer([]), None)
 
+    def test_max_at_begginning(self):
+        """Test a list with a beginning max value."""
+        max_at_beginning = [4, 3, 2, 1]
+        self.assertEqual(max_integer(max_at_beginning), 4)
+
     def test_double_occurence(self):
         '''Tests two occurences of the max int
         '''
