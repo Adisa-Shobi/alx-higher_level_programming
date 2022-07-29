@@ -36,3 +36,11 @@ Test Case: Invalid type for first_name
 	TypeError: first_name must be a string
 
 ::
+
+Test Case: At least one argument must be provided
+--------------------------------------------------
+
+::
+	>>> say_my_name()
+	Traceback (most recent call last):
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
