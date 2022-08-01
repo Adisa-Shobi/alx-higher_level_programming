@@ -9,7 +9,7 @@ class MyInt(int):
     def __ne__(self, other_int):
         '''handled equality operations btw to integers
         '''
-        return float(self)==float(other_int)
+        return float(self) == float(other_int)
 
     def __eq__(self, other_int):
         '''handles non-equality operations btw integers
