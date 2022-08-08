@@ -28,6 +28,8 @@ class Base:
         Args:
            list_dictionaries (list): List of dictionaries converted to JSON
         '''
+        if not (isinstance(list_dictionaries, list)):
+            raise TypeError("list_dictionaries must be a list")
         if (list_dictionaries is None) or (list_dictionaries == []):
             return "[]"
         else:
