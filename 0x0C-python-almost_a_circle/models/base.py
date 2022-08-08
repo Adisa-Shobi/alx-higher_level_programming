@@ -29,7 +29,7 @@ class Base:
         Args:
            list_dictionaries (list): List of dictionaries converted to JSON
         '''
-        if ((list_dictionaries is None) or (list_dictionaries == [])):
+        if (list_dictionaries is None):
             return "[]"
         else:
             return json.dumps(list_dictionaries)
