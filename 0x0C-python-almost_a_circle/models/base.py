@@ -41,11 +41,14 @@ class Base:
         Args:
            list_objs (list): A list of Square of Rectangle objects
         '''
-        dict_list = [value.to_dictionary() for value in list_objs]
         class_name = cls.__name__
-        list_objs_json = cls.to_json_string(dict_list)
         with open(f"{class_name}.json", 'w') as f:
-            f.write(list_objs_json)
+            if list_objs is None or list_objs == []:
+                f.write("[]")
+            else:
+                dict_list = [value.to_dictionary() for value in list_objs]
+                list_objs_json = cls.to_json_string(dict_list)
+                f.write(list_objs_json)
 
     @staticmethod
     def from_json_string(json_string):
