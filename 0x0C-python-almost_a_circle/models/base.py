@@ -2,6 +2,7 @@
 '''Creates a class called Base
 '''
 import json
+import csv
 
 
 class Base:
@@ -89,3 +90,42 @@ class Base:
             return []
         obj_dict_list = cls.from_json_string(f_json)
         return [cls.create(**value) for value in obj_dict_list]
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        '''Stores rectangle/square objects to a .csv file
+
+        Args:
+           list_objs (list): A list of Square/Rectangle objects.
+        '''
+        name = cls.__name__
+        with open(f"{name}.csv", 'w') as csv_file:
+            csv_writer = csv.writer(csv_file, delimiter=",")
+            if list_objs is None or list_objs == []:
+                csv_writer.writerow("")
+            else:
+                for obj in list_objs:
+                    if name == "Square":
+                        csv_writer.writerow([obj.id, obj.size, obj.x, obj.y])
+                    elif name == "Rectangle":
+                        csv_writer.writerow([obj.id, obj.width,
+                                             obj.height, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        '''Retrieves data from a .csv file and
+        returns a list of Square/Rectangle Objects
+        '''
+        result = []
+        name = cls.__name__
+        with open(f"{name}.csv", 'r') as csv_file:
+            csv_reader = csv.reader(csv_file, delimiter=",")
+            for row in csv_reader:
+                if name == "Square":
+                    result.append(cls.create(id=int(row[0]), size=int(row[1]),
+                                             x=int(row[2]), y=int(row[3])))
+                elif name == "Rectangle":
+                    result.append(cls.create(id=int(row[0]), width=int(row[1]),
+                                             height=int(row[2]), x=int(row[3]),
+                                             y=int(row[4])))
+        return result
