@@ -28,8 +28,8 @@ class Base:
         Args:
            list_dictionaries (list): List of dictionaries converted to JSON
         '''
-        if (list_dictionaries is None) or (list_dictionaries == [])
-        or (all(map(lambda x: isinstance(x, dict), list_dictionaries))):
+        if ((list_dictionaries is None) or (list_dictionaries == [])
+        or not (all(map(lambda x: isinstance(x, dict), list_dictionaries)))):
             return "[]"
         else:
             return json.dumps(list_dictionaries)
