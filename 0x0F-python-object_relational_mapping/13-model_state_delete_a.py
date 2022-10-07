@@ -16,7 +16,6 @@ if __name__ == "__main__":
             db=sys.argv[3],
             pool_pre_ping=True)
     )
-    engine.connect()
     Session = sessionmaker(bind=engine)
     session = Session()
     for state in session.query(State):
