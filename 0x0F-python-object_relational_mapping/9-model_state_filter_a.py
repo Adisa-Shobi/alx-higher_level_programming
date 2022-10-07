@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-'''a script that lists first State object from the database hbtn_0e_6_usa
+'''a script that lists all State objects starting with letter a
+from the database hbtn_0e_6_usa
 '''
 from sqlalchemy import create_engine
 import sys
@@ -17,7 +18,7 @@ if __name__ == "__main__":
     engine.connect()
     Session = sessionmaker(bind=engine)
     session = Session()
-    state = session.query(State).order_by(State.id).first()
-    if state is not None:
-        print(f"{state.id}: {state.name}")
+    for state in session.query(State).order_by(State.id).all():
+        if "a" in state.name:
+            print(f"{state.id}: {state.name}")
     session.close()
