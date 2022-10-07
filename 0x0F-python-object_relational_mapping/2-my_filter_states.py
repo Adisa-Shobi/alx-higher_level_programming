@@ -10,8 +10,8 @@ if __name__ == "__main__":
                          user=sys.argv[1], passwd=sys.argv[2])
     c = db.cursor()
     c.execute(
-        "SELECT * FROM states WHERE states.name = %s ORDER BY states.id ASC",
-        (sys.argv[4],)
+        f'''SELECT * FROM states WHERE states.name = '{sys.argv[4]}' ORDER\
+        BY states.id ASC'''
     )
     for row in c.fetchall():
         print(row)
