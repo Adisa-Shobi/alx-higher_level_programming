@@ -14,6 +14,7 @@ if __name__ == "__main__":
         BY states.id ASC'''.format(sys.argv[4])
     )
     for row in c.fetchall():
-        print(row)
+        if row[1] == sys.argv[4]:
+            print(row)
     c.close()
     db.close()
