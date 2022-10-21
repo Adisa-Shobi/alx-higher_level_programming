@@ -13,5 +13,5 @@ if __name__ == "__main__":
     response = requests.get(url, headers=headers, params=data)
     json_data = response.json()
     for entry in json_data:
-        print(f"{entry.get('commit').get('tree').get('sha')}: \
+        print(f"{entry.get('sha')}: \
 {entry.get('commit').get('author').get('name')}")
