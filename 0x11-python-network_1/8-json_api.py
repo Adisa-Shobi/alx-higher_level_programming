@@ -12,8 +12,8 @@ if __name__ == "__main__":
     response = requests.post(url, data=payload)
     try:
         json_data = response.json()
-        if json_data == {}:
-            print("No result ")
+        if len(json_data) == 0:
+            print("No result")
         else:
             print("[{}] {}".format(
                 json_data.get('id'),
