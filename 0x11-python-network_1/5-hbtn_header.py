@@ -10,4 +10,4 @@ if __name__ == "__main__":
     url = sys.argv[1]
     response = requests.get(url)
     hdrs = response.headers
-    print(hdrs['X-Request-Id'])
+    print(hdrs.get('X-Request-Id'))
