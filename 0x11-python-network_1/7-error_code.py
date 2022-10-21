@@ -10,4 +10,5 @@ if __name__ == "__main__":
     response = requests.get(url)
     if response.status_code >= 400:
         print(f"Error code: {response.status_code}")
-    print(response.content.decode('utf-8'))
+    else:
+        print(response.content.decode('utf-8'))
