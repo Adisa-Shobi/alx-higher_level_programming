@@ -2,7 +2,6 @@
 
 const request = require('request');
 const endpoint = process.argv[2];
-const query = 'https://swapi-api.hbtn.io/api/people/18/';
 let count = 0;
 request.get(
   endpoint,
@@ -12,8 +11,10 @@ request.get(
     } else if (response.statusCode === 200) {
       const data = JSON.parse(body).results;
       for (const index in data) {
-        if (data[index].characters.includes(query)) {
-          count++;
+        for (const subIndex in data[index].characters) {
+          if (data[index].characters[subIndex].includes('18')) {
+            count++;
+          }
         }
       }
       console.log(count);
