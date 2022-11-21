@@ -9,12 +9,15 @@ request.get(
   function (error, response, body) {
     if (error) {
       console.log(error);
-    }
-    const data = JSON.parse(body);
-    for (let i = 0; i < data.results.length; i++) {
-      if (data.results[i].characters.includes(query)) {
-        count++;
+    } else if (response.statusCode === 200) {
+      const data = JSON.parse(body).results;
+      for (const index in data) {
+        if (data[index].characters.includes(query)) {
+          count++;
+        }
       }
+      console.log(count);
+    } else {
+      console.log('code:', response.statusCode);
     }
-    console.log(count);
   });
