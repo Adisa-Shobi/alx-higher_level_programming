@@ -1,4 +1,4 @@
-const header = document.querySelector('header');
-header.addEventListener('click', function () {
-  header.style.color = '#FF0000';
-});
+$('header').click(
+  function (element) {
+    $('header').css('color', '#FF0000');
+  });
